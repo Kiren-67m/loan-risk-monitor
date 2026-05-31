@@ -3,7 +3,7 @@
 > **AITCC 2026 Banking Analytics Challenge — 2nd Place**  
 > Extended post-competition into a full operational risk intelligence system.
 
-**[Live Portfolio Site](https://YOUR_USERNAME.github.io/YOUR_REPO_NAME)** · [LinkedIn](https://www.linkedin.com/in/qiming-liu-845ba92a0/)
+**[Live Portfolio Site](https://Kiren-67m.github.io/loan-risk-monitor)** · [LinkedIn](https://www.linkedin.com/in/qiming-liu-845ba92a0/)
 
 ---
 

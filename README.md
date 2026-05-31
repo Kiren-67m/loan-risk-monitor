@@ -1,6 +1,6 @@
 # AI-Powered Loan Portfolio Risk Monitor
 
-> **AITCC 2025 Banking Analytics Challenge — 2nd Place**  
+> **AITCC 2026 Banking Analytics Challenge — 2nd Place**  
 > Extended post-competition into a full operational risk intelligence system.
 
 **[Live Portfolio Site](https://YOUR_USERNAME.github.io/YOUR_REPO_NAME)** · [LinkedIn](https://www.linkedin.com/in/qiming-liu-845ba92a0/)
@@ -9,7 +9,7 @@
 
 ## What This Is
 
-This project started as a timed competition entry at **AITCC 2025** (America's Innovate IT Collegiate Conference) — predict loan defaults from messy, multi-table banking data under time pressure. We placed **2nd in the Analyze IT Challenge**.
+This project started as a timed competition entry at **AITCC 2026** (America's Innovate IT Collegiate Conference) — predict loan defaults from messy, multi-table banking data under time pressure. We placed **2nd in the Analyze IT Challenge**.
 
 Post-competition, I extended it into an **end-to-end operational intelligence system** that transforms static prediction outputs into continuous, actionable risk monitoring — covering the full stack from raw data to AI-generated executive reports.
 
@@ -143,5 +143,5 @@ Python · pandas · scikit-learn · statsmodels · XGBoost · matplotlib · Anth
 ---
 
 **Qiming Liu** · [LinkedIn](https://www.linkedin.com/in/qiming-liu-845ba92a0/)  
-Built as a portfolio project from AITCC 2025 Banking Analytics Challenge · **2nd Place**
+Built as a portfolio project from AITCC 2026 Banking Analytics Challenge · **2nd Place**
 # loan-risk-monitor

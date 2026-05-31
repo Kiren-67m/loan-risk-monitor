@@ -1,0 +1,22 @@
+MONTHLY RISK REPORT — Month 1 (2023-01)
+======================================================================
+
+## Executive Summary
+
+Portfolio health in January 2023 is strong across primary metrics: 183,596 active loans show a 98.20% on-time payment rate with only 1.80% delinquency and 1.80% high-risk concentration. However, the Critical risk band represents a material concentration risk, comprising 15.0% of the portfolio (27,585 loans) with a 99.81% average default probability and significantly degraded on-time performance at 51.85%. This bifurcated profile—healthy mainstream portfolio offsetting a distressed tail—requires immediate intervention on the Critical segment before deterioration accelerates across Month 2.
+
+## Key Risk Signals
+
+- **Critical band default concentration**: 27,585 loans (15.0% of portfolio) carry 0.9981 average default probability with on-time rate of only 0.5185, representing ~$2.0 billion in principal at extreme risk ($74,195 average principal × 27,585 loans).
+
+- **Top-10 loans at certainty of default**: 10 individual loans each show 1.0000 default probability, with principals of $242,229 per loan and delinquency already present (range: 2–11 days past due), totaling ~$2.42M in immediate distress.
+
+- **Home equity and credit line vulnerability**: Of the top-10 intervention priority loans, 60% are home equity lines and 40% are credit lines, concentrated in coastal and cyclical-economy states (FL, MN, CT, RI, NJ), suggesting potential regional economic stress.
+
+## Recommended Actions
+
+1. **Activate immediate workout protocol for top-10 loans (L14492-543328 through L36747-848034)**: Assign dedicated collections case managers to each loan within 5 business days. Prioritize L35724-203317 (11 days delinquent, 0.3333 on-time rate) and L15625-229307 (7 days delinquent, GU jurisdiction) for accelerated contact and recovery negotiation; target resolution or restructuring within 30 days.
+
+2. **Establish Critical band triage framework**: Segment the 27,585 Critical loans into sub-cohorts by on-time rate (≤0.33, 0.34–0.66, 0.67–1.0) and state; initiate targeted forbearance/modification outreach to the ≤0.33 cohort (estimated 9,000–10,000 loans) before Month 2 deterioration accelerates, with success target of 40% retention in portfolio.
+
+3. **Stress-test home equity and credit line exposure**: Given 60% of top-10 risks are home equity lines, run scenario modeling on Florida and Connecticut portfolios (states with 2 loans each in critical priority list) assuming 3–5% additional monthly migration to Critical band; establish monthly monitoring thresholds to trigger proactive rate or term adjustments before Month 2 deterioration cycle.

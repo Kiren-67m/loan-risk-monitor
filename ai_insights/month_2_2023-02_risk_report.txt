@@ -1,0 +1,22 @@
+MONTHLY RISK REPORT — Month 2 (2023-02)
+======================================================================
+
+## Executive Summary
+
+Portfolio health deteriorated sharply in Month 2, with on-time rate dropping 302 basis points to 95.18% and delinquent loans spiking from 180 to 8,650 accounts. The most critical signal is the emergence of 12,669 deteriorating loans (6.91% of portfolio), representing a dramatic shift from zero deterioration in Month 1—this cohort requires immediate triage to prevent cascade defaults. The 27,585 critical-band loans (15.0% of portfolio) carrying 99.81% average default probability and only 51.85% on-time performance remain the portfolio's structural weakness.
+
+## Key Risk Signals
+
+• **Delinquency rate explosion**: Delinquent loans increased 380% month-over-month from 33 to 1,585 accounts (0.0180 to 0.0865), signaling either systematic servicing breakdown or concentrated borrower distress triggering simultaneous payment failures.
+
+• **Deteriorating cohort emergence**: 12,669 loans entered deteriorating status in Month 2 versus zero in Month 1—if this cohort follows critical-band trajectories (99.81% default probability), the portfolio faces $939M in principal exposure at risk (12,669 loans × ~$74K average principal).
+
+• **Critical segment stagnation**: The 27,585 critical loans remain locked at 51.85% on-time rate with 3.59 average days delinquent, indicating existing workout efforts are not resolving the underlying payment capacity gap.
+
+## Recommended Actions
+
+1. **Immediate triage of deteriorating cohort**: Segment the 12,669 Month 2 deteriorating loans by current on-time rate and days delinquent; prioritize the bottom quartile (estimated ~3,167 loans) for same-day contact, payment plan negotiation, or hardship review to arrest progression to critical status before Month 3.
+
+2. **Focused collection on top-10 priority accounts**: Escalate loans L35724-203317 (11 days delinquent, $242,229 principal) and L15625-229307 (7 days delinquent, home equity, GU) to senior workout specialists within 5 business days; all top-10 loans carry 100% default probability and $2.42M combined exposure requiring individualized recovery strategy rather than automated processes.
+
+3. **Critical-band portfolio review**: Commission a 60-day root-cause analysis of why the 27,585 critical loans (99.81% default probability) maintain any on-time payments at 51.85%—hypothesis test whether these are distressed borrowers in forbearance, underwater collateral positions, or servicing data errors; reallocate collection capacity if forbearance program is masking true defaults.

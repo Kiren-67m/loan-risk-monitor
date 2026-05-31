@@ -1,0 +1,22 @@
+MONTHLY RISK REPORT — Month 4 (2023-04)
+======================================================================
+
+## Executive Summary
+
+Month 4 portfolio shows mixed signals: active loans contracted sharply to 90,423 (−47.0% from Month 3's 170,919), yet on-time payment rate improved to 97.33% from 94.66%, indicating a portfolio reduction strategy or mass remediation effort is underway. The critical concern is the persistence of 27,585 loans (15.0% of portfolio) in critical risk band with 99.81% average default probability and only 51.85% on-time performance despite portfolio shrinkage. Deteriorating loans fell to 4,907 (5.43% of active), marking the first meaningful decline since Month 1, but the absolute concentration of critical-band exposure remains systemically significant.
+
+## Key Risk Signals
+
+- **Critical band concentration unchanged despite portfolio reduction**: 27,585 critical-risk loans representing $2.05B in principal remain locked at 15.0% of the shrunken portfolio, suggesting selective retention of worst credits rather than proportional culling—on-time rate of 51.85% confirms active delinquency behavior with 3.59 average days past due.
+
+- **Ten top-priority loans total $2.42M with perfect default probability and material delinquency**: Loans L14492-543328, L15625-229307, L17211-139400, and seven others each carry 100% default probability and principal of $242,229; L35724-203317 is 11 days delinquent while L15625-229307 is 7 days past due, representing immediate loss crystallization risk.
+
+- **Deteriorating loan count collapsed 69.5% month-over-month**: Drop from 16,085 (Month 3) to 4,907 (Month 4) represents either aggressive charge-offs masking underlying stress or portfolio exit, making Month 4 a potential inflection point requiring charge-off reconciliation to validate improvement credibility.
+
+## Recommended Actions
+
+1. **Immediate collections escalation on top-10 priority cohort (30 days)**: Deploy specialized recovery teams to loans L14492-543328, L15625-229307, L35724-203317, and L34436-106707—these four loans exhibit delinquency of 4–11 days combined with on-time rates ≤50%, requiring direct borrower contact, hardship assessment, and workout plan initiation to prevent the $242,229 per-loan losses from crystallizing into charge-offs.
+
+2. **Audit critical band retention logic and enforce exit threshold (15 days)**: The 27,585 critical-band loans (99.81% default probability) should trigger immediate risk committee review—determine why these credits were retained during portfolio reduction and establish a 90-day compliance plan to exit or restructure all critical-band loans above $150,000 principal or with on-time rates below 40%.
+
+3. **Validate Month 4 charge-off activity and Month 5 portfolio trajectory (30 days)**: The 69.5% drop in deteriorating loans is anomalous and inconsistent with the 27,585 critical-band exposure; require Finance to reconcile Month 3→Month 4 loan exit, charge-off, and paydown activity and confirm whether the Month 5 active-loan count of 11,599 reflects further mass portfolio exit or data anomaly to assess whether Month 4 represents managed risk reduction or uncontrolled portfolio hemorrhage.

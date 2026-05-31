@@ -1,0 +1,22 @@
+MONTHLY RISK REPORT — Month 5 (2023-05)
+======================================================================
+
+## Executive Summary
+
+Month 5 portfolio health has improved materially across headline metrics, with active loans contracting to 11,599 (87.2% decline from Month 4's 90,423) and delinquency dropping to 2.39% from 7.57%. However, this improvement reflects portfolio run-off rather than genuine risk reduction: the critical risk band remains bloated at 15.0% of remaining loans (27,585 accounts) with a 0.9981 average default probability, and ten loans in the top intervention priority list each carry $242,229 principal exposure with perfect 1.0000 default probability. The portfolio's apparent health masks concentration risk in a shrinking base of critically distressed assets.
+
+## Key Risk Signals
+
+- **Critical band default concentration**: 27,585 loans (15.0% of portfolio) exhibit 0.9981 average default probability despite only 0.5185 on-time payment rate, representing $2.04 billion in embedded credit loss; this band has persisted across all five months with negligible improvement.
+
+- **Top-10 priority loans show zero recovery trajectory**: All ten highest-risk loans hold identical $242,229 principal and 1.0000 default probability, with delinquencies ranging 2–11 days; L35724-203317 (home_equity, MN) has advanced to 11 days delinquent—the longest in the cohort—indicating deterioration despite Month 5's aggregate improvement.
+
+- **Loan portfolio velocity masks deteriorating core**: Despite active loans shrinking 87.2% since Month 4, deteriorating loan count remains material at 189 accounts (1.63% of Month 5 base), suggesting selective attrition of performing assets while problem loans persist.
+
+## Recommended Actions
+
+- **Immediate escalation of top-10 priority cohort to specialized recovery unit**: Assign dedicated collections resources to all ten loans with 1.0000 default probability within 5 business days. Prioritize L35724-203317 (11 days delinquent) and L15625-229307 (7 days delinquent, home_equity) for same-day borrower contact and payment plan negotiation; recovery rate improvement of just 10% on this $2.42 million cohort would reduce Month 6 embedded loss by ~$73,000.
+
+- **Implement critical band portfolio stress review**: Conduct forensic analysis of the 27,585 critical-band loans to identify root causes of persistent 0.9981 default probability and 3.59 average days delinquent; segment by loan type and state (home_equity and credit_line products show highest concentration) and model exit scenarios (charge-off, recovery, refinance) within 15 days to inform June portfolio actions.
+
+- **Establish hard delinquency threshold trigger at 5 days**: Define automated escalation protocol requiring supervisor review for any loan exceeding 5 days delinquent; current data shows L35724-203317 at 11 days, indicating current monitoring gaps. Apply retroactively to remaining 27,585 critical loans and flag any additional accounts crossing threshold by May 31st.

@@ -1,0 +1,22 @@
+MONTHLY RISK REPORT — Month 3 (2023-03)
+======================================================================
+
+## Executive Summary
+
+Month 3 portfolio health has deteriorated materially: on-time payment rate declined 52 basis points to 94.66% while delinquency surged 346 basis points to 12.11%, and the count of deteriorating loans expanded 27% month-over-month to 16,085 loans (9.41% of portfolio). The critical risk segment now represents 15.0% of the portfolio with a 99.81% average default probability and 3.59 days average delinquency, yet high-risk loans actually contracted to 3.91% after peaking at 8.65% in Month 2—indicating either successful remediation or reclassification rather than stabilization. The portfolio has shed 12,411 active loans (6.8% decline) since Month 2, suggesting either aggressive charge-offs or loan dispositions that mask underlying performance stress.
+
+## Key Risk Signals
+
+- **Critical segment concentration crisis**: 27,585 loans (15.0% of portfolio) now carry 99.81% average default probability with only 51.85% on-time rate and 3.59 days average delinquency, representing $2.045 billion in principal at imminent loss risk.
+
+- **Delinquency spike outpaces high-risk classification**: Delinquent loans jumped 346 basis points to 12.11% (20,709 loans) while high-risk loans contracted 474 basis points to 3.91% (6,691 loans)—a 5.3x divergence indicating delinquency is occurring across risk tiers, not concentrated in flagged segments.
+
+- **Top-10 intervention queue all perfected at 100% default probability**: Ten loans totaling $2.422 million each display perfect 1.0000 default probability across multiple states; one (L35724-203317) has escalated to 11 days delinquent in Minnesota, representing imminent charge-off without immediate intervention.
+
+## Recommended Actions
+
+- **Immediate collections escalation on critical segment**: Deploy specialized recovery team to the 27,585 loans in the critical band within 10 business days; prioritize the ten loans in the intervention queue by state (FL, MN, GU, RI showing highest delinquency days), with separate protocols for home_equity versus credit_line products given their differing recovery dynamics.
+
+- **Force loan disposition decision on Month 3 deteriorating cohort**: The 16,085 newly deteriorating loans (9.41% of portfolio) must be triaged within 45 days into three buckets—retain with enhanced monitoring (loans with on-time_rate >70%), transfer to specialized servicer (50–70% on-time rate), or charge off (<50% on-time rate)—to prevent additional drift into the critical segment.
+
+- **Quantify and reverse Month 2–3 portfolio shrinkage**: The 12,411-loan decline (6.8%) occurred despite delinquency worsening; investigate whether dispositions included performing loans that should have been retained, and establish a minimum portfolio threshold of 170,000 active loans with monthly variance reporting to the committee.

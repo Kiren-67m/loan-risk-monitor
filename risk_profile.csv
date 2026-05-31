@@ -1,0 +1,5 @@
+band,loan_count,loan_pct,avg_default_proba,avg_principal,total_principal,avg_on_time_rate,avg_days_delinquent,avg_credit_score,avg_dti,pct_has_payment_hist,top_loan_types
+Low,146879,80.0,0.0264,85016.5132,12487140449,1.0,0.0,595.5535,35.1324,1.0,"credit_line 44%, home_equity 41%, small_business 7%"
+Medium,8438,4.6,0.15,64473.747,544029476,1.0,0.0,595.6901,35.2523,1.0,"credit_line 44%, home_equity 40%, small_business 8%"
+High,694,0.38,0.3951,61984.1472,43016998,1.0,0.0,592.4948,35.9321,1.0,"credit_line 44%, home_equity 39%, auto 8%"
+Critical,27585,15.02,0.9981,74194.9214,2046666907,0.5185,3.5907,595.9674,35.1584,1.0,"credit_line 44%, home_equity 41%, small_business 7%"

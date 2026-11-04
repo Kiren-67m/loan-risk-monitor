@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.ipynb_checkpoints/
+borrowers.csv
+loans.csv
+payment_history.csv
+train.csv
+eval.csv
+answer_key.csv

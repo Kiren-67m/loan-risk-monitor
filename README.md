@@ -1,7 +1,7 @@
-# AI-Powered Loan Portfolio Risk Monitor
+# Loan Portfolio Risk Monitor
 
 > **AITCC 2026 Banking Analytics Challenge — 2nd Place**  
-> Extended post-competition into a full operational risk intelligence system.
+> Competition work extended into a portfolio monitoring prototype.
 
 **[Live Portfolio Site](https://Kiren-67m.github.io/loan-risk-monitor)** · [LinkedIn](https://www.linkedin.com/in/qiming-liu-845ba92a0/)
 
@@ -11,13 +11,13 @@
 
 This project started as a timed competition entry at **AITCC 2026** (America's Innovate IT Collegiate Conference) — predict loan defaults from messy, multi-table banking data under time pressure. We placed **2nd in the Analyze IT Challenge**.
 
-Post-competition, I extended it into an **end-to-end operational intelligence system** that transforms static prediction outputs into continuous, actionable risk monitoring — covering the full stack from raw data to AI-generated executive reports.
+Post-competition, I extended it into a **portfolio monitoring prototype** connecting prediction outputs, monthly KPI snapshots, risk segmentation and AI-generated reports.
 
 ---
 
 ## Core Analytical Insight
 
-Payment behavior features engineered from raw monthly records are **far more predictive** of default than traditional credit metrics:
+Payment behavior features engineered from raw monthly records show stronger associations with default in this competition dataset than the credit metrics below:
 
 | Feature | Correlation with Default |
 |---|---|
@@ -80,7 +80,7 @@ Portfolio Website            index.html
 └── eda_outputs/                          # EDA charts and figures
 ```
 
-> Raw data files (`payment_history.csv`, `loans.csv`, `borrowers.csv`, `train.csv`) are excluded via `.gitignore` — they are large competition-provided files. All notebooks are fully self-documented.
+> Original competition inputs are not bundled. Full modeling requires `borrowers.csv`, `loans.csv`, `payment_history.csv`, `train.csv`, `eval.csv` and `answer_key.csv` in the repository root. The committed outputs and notebook results can be inspected without these files.
 
 ---
 
@@ -123,18 +123,26 @@ Loans that looked fully clean at Month 1 became delinquent at Month 2 — the cr
 ## Running the Notebooks
 
 ```bash
-pip install pandas numpy scikit-learn xgboost statsmodels matplotlib anthropic
+pip install -r requirements.txt
+jupyter lab
 ```
 
 **Execution order:**
 1. `Loan.ipynb` — competition modeling pipeline (requires raw data CSVs)
 2. `Copilot_Phase0.ipynb` — generates monthly KPI CSVs
 3. `Copilot_Phase2.ipynb` — generates risk profile and priority loans
-4. `Copilot_Phase3.ipynb` — requires Anthropic API key in Cell 1
+4. `Copilot_Phase3.ipynb` — requires an `ANTHROPIC_API_KEY` environment variable and makes external API calls
 
-**API key:** Replace `YOUR_API_KEY_HERE` in `Copilot_Phase3.ipynb` Cell 1 with your own key from [console.anthropic.com](https://console.anthropic.com).
+**API key:** Set `ANTHROPIC_API_KEY` in your local environment before launching Jupyter. Do not write a real key into a notebook. Phase 3 sends analytical context to the Anthropic API and incurs usage charges; it is optional. The existing reports can be read without an API call.
 
 ---
+
+## Scope and evaluation limits
+
+- The performance figures above are recorded competition results from `Loan.ipynb`; they have not been reproduced from a fresh checkout here because the raw competition inputs are absent. `benchmark.txt` is the supplied challenge baseline, not the final model's score.
+- Feature engineering aggregates supplied payment history, and model selection uses a random validation split. This does not establish point-in-time forecasting performance or remove the need to check temporal leakage and preprocessing leakage before operational use.
+- Phase 2 fits a separate random forest and scores the full portfolio, including training rows. Its risk bands and watchlists are exploratory outputs, not held-out model evaluation.
+- Monthly reports use generated analytical context and require human review. A production early-warning claim would need as-of feature cutoffs, time-based validation, calibration and monitoring.
 
 ## Tech Stack
 
@@ -144,4 +152,3 @@ Python · pandas · scikit-learn · statsmodels · XGBoost · matplotlib · Anth
 
 **Qiming Liu** · [LinkedIn](https://www.linkedin.com/in/qiming-liu-845ba92a0/)  
 Built as a portfolio project from AITCC 2026 Banking Analytics Challenge · **2nd Place**
-# loan-risk-monitor

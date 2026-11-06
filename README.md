@@ -104,7 +104,7 @@ Portfolio Website            index.html
 | High | 694 | 0.4% | 0.395 | 1.000 |
 | **Critical** | **27,585** | **15.0%** | **0.998** | **0.519** |
 
-Risk distribution is binary — payment behavior creates a hard cliff between Critical and everyone else.
+The exploratory scoring output is concentrated in the Low and Critical bands. Because these scores include training rows, this pattern should not be interpreted as evidence of reliable separation on new loans.
 
 ---
 
@@ -116,7 +116,7 @@ Month 2: 12,454 loans first went delinquent  ← largest single-month jump (46%)
 Month 3:  9,202 loans first went delinquent  (peak cumulative risk)
 ```
 
-Loans that looked fully clean at Month 1 became delinquent at Month 2 — the critical early intervention window.
+Month 2 has the largest count of first delinquency events in this retrospective summary. This is a candidate period for investigation; establishing an actionable early-warning window requires features available before delinquency and time-based validation.
 
 ---
 

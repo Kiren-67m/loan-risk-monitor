@@ -1,0 +1,8 @@
+month_number,source_loan_periods,rows_after_unchecked_loan_join,rows_after_unchecked_dimension_joins,extra_rows_from_unchecked_joins,reconciled_active_loans,loan_type_segment_active_loans,state_segment_active_loans
+1,180000,181800,183596,3596,180000,180000,180000
+2,179739,181535,183330,3591,179739,179739,179739
+3,167587,169256,170919,3332,167587,167587,167587
+4,88607,89531,90423,1816,88607,88607,88607
+5,11354,11483,11599,245,11354,11354,11354
+6,222,225,226,4,222,222,222
+7,2,3,3,1,2,2,2

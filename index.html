@@ -264,7 +264,12 @@ h2.section-title {
 .period-highlight { color: var(--white); background: rgba(59,130,246,.13); }
 .source-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 16px 0 0; font-size: .85rem; }
 #tableau .dash-card + .dash-card { margin-top: 24px; }
-.tableau-frame { display: block; width: 100%; height: clamp(480px, 65vw, 620px); border: 0; background: #fff; }
+.tableau-viewport { background: #fff; }
+/* Both Tableau dashboards use a fixed canvas. Keep the legend and toolbar in frame. */
+.tableau-frame {
+  display: block; width: 1380px; height: 810px; border: 0;
+  zoom: var(--tableau-scale, 1);
+}
 
 /* ── Risk brief ───────────────────────────────────────────────────────────── */
 .report-body {
@@ -741,15 +746,19 @@ footer {
 
   <div class="dash-card">
     <h3 class="dash-label">Loan Portfolio · Monthly Risk Monitor</h3>
-    <iframe class="tableau-frame" title="Reconciled Tableau loan portfolio risk monitor" loading="lazy" allowfullscreen
-      src="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/LoanPortfolioMonthlyRiskMonitor?:embed=yes&amp;:showVizHome=no&amp;:tabs=no&amp;:language=en-US"></iframe>
+    <div class="table-scroll tableau-viewport" role="region" aria-label="Scrollable portfolio dashboard" tabindex="0">
+      <iframe class="tableau-frame" title="Reconciled Tableau loan portfolio risk monitor" loading="lazy" allowfullscreen
+        src="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/LoanPortfolioMonthlyRiskMonitor?:embed=yes&amp;:showVizHome=no&amp;:tabs=no&amp;:language=en-US"></iframe>
+    </div>
     <p class="dash-note"><a href="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/LoanPortfolioMonthlyRiskMonitor">Open the portfolio view on Tableau Public</a></p>
   </div>
 
   <div class="dash-card">
     <h3 class="dash-label">Segment Analysis · Loan Type Breakdown</h3>
-    <iframe class="tableau-frame" title="Reconciled Tableau loan type breakdown" loading="lazy" allowfullscreen
-      src="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/SegmentAnalysisLoanTypeBreakdown?:embed=yes&amp;:showVizHome=no&amp;:tabs=no&amp;:language=en-US"></iframe>
+    <div class="table-scroll tableau-viewport" role="region" aria-label="Scrollable segment dashboard" tabindex="0">
+      <iframe class="tableau-frame" title="Reconciled Tableau loan type breakdown" loading="lazy" allowfullscreen
+        src="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/SegmentAnalysisLoanTypeBreakdown?:embed=yes&amp;:showVizHome=no&amp;:tabs=no&amp;:language=en-US"></iframe>
+    </div>
     <p class="dash-note"><a href="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/SegmentAnalysisLoanTypeBreakdown">Open the segment view on Tableau Public</a></p>
   </div>
 </section>
@@ -799,6 +808,16 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.08 });
 document.querySelectorAll('section:not(#hero)').forEach(s => observer.observe(s));
 
+// Keep the charts readable on narrow screens by letting the container scroll.
+const tableauFit = new ResizeObserver(entries => {
+  for (const { target, contentRect } of entries) {
+    const frame = target.querySelector('iframe');
+    const canvasWidth = parseFloat(getComputedStyle(frame).width);
+    const scale = Math.min(1, Math.max(contentRect.width, 960) / canvasWidth);
+    frame.style.setProperty('--tableau-scale', scale);
+  }
+});
+document.querySelectorAll('.tableau-viewport').forEach(viewport => tableauFit.observe(viewport));
 </script>
 </body>
 </html>

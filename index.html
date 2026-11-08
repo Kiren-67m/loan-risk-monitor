@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI-Powered Loan Portfolio Risk Monitor | Qiming Liu</title>
+<title>Loan Portfolio Risk Monitor | Qiming Liu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -101,15 +101,6 @@ h2.section-title {
   font-size: 1.6rem; font-weight: 700; color: var(--white); display: block;
 }
 .metric-label { font-size: .8rem; color: var(--muted); margin-top: 4px; }
-.scroll-hint {
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  color: var(--muted); font-size: .8rem; animation: bounce 2s infinite;
-}
-.scroll-arrow { font-size: 1.4rem; }
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(8px); }
-}
 
 /* ── Overview ─────────────────────────────────────────────────────────────── */
 .overview-grid {
@@ -241,14 +232,6 @@ h2.section-title {
 .risk-pct   { font-size: .8rem; color: var(--muted); margin-bottom: 16px; }
 .risk-stats { font-size: .8rem; color: var(--muted); line-height: 1.9; }
 .risk-stats span { color: var(--text); }
-.risk-action {
-  margin-top: 16px; padding: 6px 12px;
-  border-radius: 4px; font-size: .75rem; font-weight: 600; display: inline-block;
-}
-.risk-card.low    .risk-action { background: rgba(16,185,129,.15);  color: var(--green); }
-.risk-card.medium .risk-action { background: rgba(245,158,11,.15);  color: var(--yellow); }
-.risk-card.high   .risk-action { background: rgba(249,115,22,.15);  color: var(--orange); }
-.risk-card.crit   .risk-action { background: rgba(239,68,68,.15);   color: var(--red); }
 .risk-insight {
   font-size: .9rem; color: var(--muted); line-height: 1.7;
   padding: 24px 28px; background: var(--card); border-radius: var(--radius);
@@ -256,51 +239,37 @@ h2.section-title {
 }
 
 /* ── Dashboard ────────────────────────────────────────────────────────────── */
-.dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+#dashboard .dash-card + .dash-card { margin-top: 20px; }
+#reconciliation { scroll-margin-top: 76px; }
 .dash-card {
   background: var(--card); border: 1px solid var(--border);
   border-radius: var(--radius); overflow: hidden;
 }
 .dash-label {
-  padding: 16px 20px; font-size: .82rem; color: var(--muted);
+  padding: 16px 20px; font-size: .92rem; color: var(--white);
   border-bottom: 1px solid var(--border);
 }
-.dash-placeholder {
-  height: 260px; display: flex; align-items: center; justify-content: center;
-  color: var(--border); font-size: .85rem; font-style: italic;
-  background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.01) 10px, rgba(255,255,255,.01) 20px);
+.dash-note { padding: 12px 20px; font-size: .82rem; color: var(--muted); }
+.table-scroll { overflow-x: auto; }
+.table-scroll:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.kpi-table {
+  width: 100%; border-collapse: collapse; font-size: .86rem;
+  font-variant-numeric: tabular-nums;
 }
-.tableau-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--blue); color: var(--white); border: none; cursor: pointer;
-  padding: 12px 24px; border-radius: var(--radius); font-size: .9rem;
-  font-weight: 600; font-family: inherit; text-decoration: none;
-  transition: background .2s, transform .2s;
-}
-.tableau-btn:hover { background: #2563eb; transform: translateY(-1px); text-decoration: none; }
+.kpi-table th, .kpi-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.kpi-table thead th { color: var(--muted); font-size: .78rem; }
+.kpi-table th:first-child { text-align: left; }
+.kpi-table td, .kpi-table th:not(:first-child) { text-align: right; }
+.kpi-table td { white-space: nowrap; }
+.period-highlight { color: var(--white); background: rgba(59,130,246,.13); }
+.source-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 16px 0 0; font-size: .85rem; }
+#tableau .dash-card + .dash-card { margin-top: 24px; }
+.tableau-frame { display: block; width: 100%; height: clamp(480px, 65vw, 620px); border: 0; background: #fff; }
 
-/* ── AI Reports ───────────────────────────────────────────────────────────── */
-.tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 32px; flex-wrap: wrap; }
-.tab-btn {
-  background: none; border: none; cursor: pointer;
-  padding: 12px 24px; font-size: .85rem; font-family: inherit;
-  color: var(--muted); border-bottom: 2px solid transparent;
-  transition: color .2s, border-color .2s;
-  display: flex; align-items: center; gap: 8px;
-}
-.tab-btn:hover { color: var(--white); }
-.tab-btn.tab-active { color: var(--white); border-bottom-color: var(--blue); }
-.tab-sub { font-size: .72rem; color: var(--muted); }
-.peak-badge {
-  background: rgba(239,68,68,.15); color: var(--red);
-  font-size: .65rem; font-weight: 600; padding: 2px 7px;
-  border-radius: 10px; text-transform: uppercase; letter-spacing: .05em;
-}
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
+/* ── Risk brief ───────────────────────────────────────────────────────────── */
 .report-body {
   background: var(--card); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 36px 40px;
+  border-radius: var(--radius); padding: clamp(16px, 4vw, 40px);
   font-size: .9rem; line-height: 1.8; color: var(--text);
 }
 .report-h3 {
@@ -309,9 +278,8 @@ h2.section-title {
   border-bottom: 1px solid var(--border);
 }
 .report-h3:first-child { margin-top: 0; }
-.report-ul { padding-left: 20px; margin: 8px 0 16px; }
-.report-ul li { margin-bottom: 10px; color: var(--text); }
 .report-p { margin-bottom: 12px; }
+.report-body .kpi-table td { white-space: normal; }
 
 /* ── Stack ────────────────────────────────────────────────────────────────── */
 .stack-grid {
@@ -347,7 +315,6 @@ footer {
   .findings-grid { grid-template-columns: 1fr; }
   .findings-vs { padding-top: 0; }
   .risk-grid { grid-template-columns: 1fr 1fr; }
-  .dash-grid { grid-template-columns: 1fr; }
   .fi-grid { grid-template-columns: 1fr; }
   .pipeline-row { flex-direction: column; }
   .pipe-step { border-radius: var(--radius) !important; margin-left: 0 !important; margin-bottom: 8px; }
@@ -369,18 +336,19 @@ footer {
     <a href="#findings">Findings</a>
     <a href="#model">Model</a>
     <a href="#risk">Risk</a>
-    <a href="#reports">AI Reports</a>
+    <a href="#dashboard">KPIs</a>
+    <a href="#reports">Risk Brief</a>
+    <a href="#tableau">Tableau</a>
   </div>
 </nav>
 
 <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
 <section id="hero" class="visible">
   <div class="section-label">AITCC 2026 · Banking Analytics · 2nd Place</div>
-  <h1>AI-Powered Loan Portfolio<br><span>Risk Monitor</span></h1>
+  <h1>Loan Portfolio<br><span>Risk Monitor</span></h1>
   <p class="hero-sub">
-    From raw banking data to continuous AI-driven risk intelligence —
-    an end-to-end operational analytics system built on a competitive
-    loan default prediction pipeline.
+    A competition loan-default analysis extended into a portfolio monitoring prototype,
+    with reconciled payment KPIs and a risk brief drawn from the original competition data.
   </p>
   <div class="metrics-row">
     <div class="metric-card">
@@ -389,20 +357,21 @@ footer {
     </div>
     <div class="metric-card">
       <span class="metric-num">AUC 0.96</span>
-      <div class="metric-label">Classification</div>
+      <div class="metric-label">Competition Classification</div>
     </div>
     <div class="metric-card">
       <span class="metric-num">R² 0.79</span>
-      <div class="metric-label">Regression</div>
+      <div class="metric-label">Competition Regression</div>
     </div>
     <div class="metric-card">
-      <span class="metric-num">5 Reports</span>
-      <div class="metric-label">Monthly AI Risk Reports</div>
+      <span class="metric-num">627,511</span>
+      <div class="metric-label">Reconciled Loan-Periods</div>
     </div>
   </div>
-  <div class="scroll-hint">
-    <span class="scroll-arrow">↓</span>
-    <span>Scroll to explore</span>
+  <div class="source-links">
+    <a href="#dashboard">View Reconciled KPIs</a>
+    <a href="#reports">Read the Period 3 Brief</a>
+    <a href="#tableau">Explore the Tableau Dashboards</a>
   </div>
 </section>
 
@@ -413,8 +382,8 @@ footer {
   <div class="overview-grid">
     <div class="overview-text">
       <p>This project began as a timed competition entry at AITCC 2026 (America's Innovate IT Collegiate Conference), where our team placed 2nd in the Analyze IT Challenge. The original task: predict loan defaults from messy, multi-table banking data under time pressure.</p>
-      <p>Post-competition, I extended the project into something more ambitious — an operational intelligence system that transforms static prediction outputs into continuous, actionable risk monitoring. The system now includes monthly KPI tracking, risk segmentation with intervention prioritization, interactive dashboards, and AI-generated executive risk reports powered by Claude API.</p>
-      <p>The core analytical insight driving the entire system: payment behavior features engineered from raw monthly records (on-time rate, cumulative delinquent days) are far more predictive of default than traditional credit metrics like credit score or income — with correlations above 0.70 versus near-zero for conventional indicators.</p>
+      <p>After the competition, I extended the analysis into a portfolio monitoring prototype with payment-period KPIs, exploratory risk segmentation, and a report based on reconciled source counts.</p>
+      <p>In the competition data, on-time rate and cumulative delinquent days had stronger historical associations with default than credit score and income. The competition features aggregate the supplied payment history.</p>
     </div>
     <div class="timeline">
       <div class="timeline-item">
@@ -425,27 +394,27 @@ footer {
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-title">Model Enhancement</div>
-        <div class="timeline-desc">Validation split, Random Forest + XGBoost comparison, feature importance analysis</div>
+        <div class="timeline-desc">Validation split, baseline and Random Forest comparison, feature importance analysis</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-title">Operational KPIs</div>
-        <div class="timeline-desc">Monthly portfolio snapshots, cumulative payment behavior tracking</div>
+        <div class="timeline-desc">One record per loan and payment period, reconciled against the source</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-title">Risk Segmentation</div>
-        <div class="timeline-desc">4-tier risk bands, priority scoring, early warning signals</div>
+        <div class="timeline-desc">Four exploratory bands based on historical payment records</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-title">Tableau Dashboard</div>
-        <div class="timeline-desc">Interactive portfolio monitor with segment drill-down</div>
+        <div class="timeline-title">Portfolio Dashboard</div>
+        <div class="timeline-desc">Reconciled payment KPIs and a comparison of the previous and corrected counts</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-title">AI Insight Engine</div>
-        <div class="timeline-desc">Claude API generates monthly executive risk reports</div>
+        <div class="timeline-title">Period 3 Risk Brief</div>
+        <div class="timeline-desc">Payment trends and coverage with source counts and denominators</div>
       </div>
     </div>
   </div>
@@ -455,17 +424,17 @@ footer {
 <section id="pipeline">
   <div class="section-label">Methodology</div>
   <h2 class="section-title">Data Pipeline &amp; Methodology</h2>
-  <p class="section-sub">Six stages from raw relational tables to continuous operational intelligence.</p>
+  <p class="section-sub">From relational competition data to a reconciled portfolio monitoring prototype.</p>
   <div class="pipeline-row">
     <div class="pipe-step">
       <div class="pipe-num">01 · Raw Data</div>
       <div class="pipe-title">Source Tables</div>
-      <div class="pipe-desc">3 relational tables: 70K borrowers, 180K loans, 627K monthly payment records</div>
+      <div class="pipe-desc">70,972 unique borrower records, 180,000 loans and 627,511 loan-periods</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">02 · Cleaning</div>
       <div class="pipe-title">Data Quality</div>
-      <div class="pipe-desc">Standardize formats, deduplicate, handle orphaned foreign keys, clip negative outliers</div>
+      <div class="pipe-desc">Deduplicate source keys and verify that joins preserve payment records</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">03 · Engineering</div>
@@ -475,7 +444,7 @@ footer {
     <div class="pipe-step">
       <div class="pipe-num">04 · EDA</div>
       <div class="pipe-title">Discovery</div>
-      <div class="pipe-desc">Group comparison + correlation analysis reveals payment behavior &gt;&gt; credit score</div>
+      <div class="pipe-desc">Compare historical associations with recorded default</div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">05 · Modeling</div>
@@ -485,7 +454,7 @@ footer {
     <div class="pipe-step">
       <div class="pipe-num">06 · System</div>
       <div class="pipe-title">Operations</div>
-      <div class="pipe-desc">Monthly KPIs, risk segmentation, Tableau dashboard, AI-generated reports</div>
+      <div class="pipe-desc">Reconciled KPIs, segment rollups and a risk brief with denominators</div>
     </div>
   </div>
 </section>
@@ -500,17 +469,17 @@ footer {
       <div class="finding-card bad">
         <div class="finding-var">Credit Score</div>
         <div class="finding-corr bad">r = 0.001</div>
-        <div class="finding-note">Near-zero predictive power</div>
+        <div class="finding-note">Near-zero historical correlation</div>
       </div>
       <div class="finding-card bad">
         <div class="finding-var">Annual Income</div>
         <div class="finding-corr bad">r = -0.005</div>
-        <div class="finding-note">Near-zero predictive power</div>
+        <div class="finding-note">Near-zero historical correlation</div>
       </div>
       <div class="finding-card bad">
         <div class="finding-var">Interest Rate</div>
         <div class="finding-corr bad">r = -0.001</div>
-        <div class="finding-note">Near-zero predictive power</div>
+        <div class="finding-note">Near-zero historical correlation</div>
       </div>
     </div>
     <div class="findings-vs">↓</div>
@@ -519,17 +488,17 @@ footer {
       <div class="finding-card good">
         <div class="finding-var">On-Time Rate</div>
         <div class="finding-corr good">r = -0.76</div>
-        <div class="finding-note">Dominant default predictor</div>
+        <div class="finding-note">Strong historical correlation</div>
       </div>
       <div class="finding-card good">
         <div class="finding-var">Delinquency Rate</div>
         <div class="finding-corr good">r = +0.76</div>
-        <div class="finding-note">Dominant default predictor</div>
+        <div class="finding-note">Strong historical correlation</div>
       </div>
       <div class="finding-card good">
         <div class="finding-var">Cumulative Delinquent Days</div>
         <div class="finding-corr good">r = +0.70</div>
-        <div class="finding-note">Dominant default predictor</div>
+        <div class="finding-note">Strong historical correlation</div>
       </div>
     </div>
   </div>
@@ -573,7 +542,7 @@ footer {
   <p class="model-note">
     Best classifier: Logistic Regression (AUC 0.9650) &nbsp;·&nbsp;
     Best regressor: Random Forest (RMSE 87.6, R² 0.7825)<br>
-    Final evaluation: <strong style="color:var(--white)">AUC 0.9629 &nbsp;·&nbsp; R² 0.7867 &nbsp;·&nbsp; F1 0.9089</strong>
+    Final competition evaluation: <strong style="color:var(--white)">AUC 0.9629 &nbsp;·&nbsp; R² 0.7867 &nbsp;·&nbsp; F1 0.9089</strong>
   </p>
   <div class="fi-grid">
     <div>
@@ -625,9 +594,8 @@ footer {
 </div>
     </div>
     <p class="fi-note">
-      Both methods agree: <strong>total_days_delinquent</strong> and
-      <strong>on_time_rate</strong> are the dominant features.
-      Traditional credit metrics rank last.
+      <strong>total_days_delinquent</strong> ranked first in both models.
+      <strong>on_time_rate</strong> ranked second in the Random Forest comparison.
     </p>
   </div>
 </section>
@@ -635,290 +603,155 @@ footer {
 <!-- ── RISK ───────────────────────────────────────────────────────────────── -->
 <section id="risk">
   <div class="section-label">Segmentation</div>
-  <h2 class="section-title">Risk Segmentation &amp; Early Warning</h2>
+  <h2 class="section-title">Exploratory Risk Segmentation</h2>
+  <p class="section-sub">Original risk-band analysis using the full competition sample, including training rows.</p>
   <div class="risk-grid">
     <div class="risk-card low">
       <div class="risk-tier">Low Risk</div>
       <div class="risk-count">146,879</div>
       <div class="risk-pct">80.0% of portfolio</div>
       <div class="risk-stats">
-        Avg proba: <span>0.026</span><br>
+        Average model score: <span>0.026</span><br>
         On-time rate: <span>1.000</span>
       </div>
-      <span class="risk-action">Routine monitoring</span>
     </div>
     <div class="risk-card medium">
       <div class="risk-tier">Medium Risk</div>
       <div class="risk-count">8,438</div>
       <div class="risk-pct">4.6% of portfolio</div>
       <div class="risk-stats">
-        Avg proba: <span>0.150</span><br>
+        Average model score: <span>0.150</span><br>
         On-time rate: <span>1.000</span>
       </div>
-      <span class="risk-action">Watch list</span>
     </div>
     <div class="risk-card high">
       <div class="risk-tier">High Risk</div>
       <div class="risk-count">694</div>
       <div class="risk-pct">0.4% of portfolio</div>
       <div class="risk-stats">
-        Avg proba: <span>0.395</span><br>
+        Average model score: <span>0.395</span><br>
         On-time rate: <span>1.000</span>
       </div>
-      <span class="risk-action">Active oversight</span>
     </div>
     <div class="risk-card crit">
       <div class="risk-tier">Critical Risk</div>
       <div class="risk-count">27,585</div>
       <div class="risk-pct">15.0% of portfolio</div>
       <div class="risk-stats">
-        Avg proba: <span>0.998</span><br>
+        Average model score: <span>0.998</span><br>
         On-time rate: <span>0.519</span><br>
         Avg days delinquent: <span>3.59</span>
       </div>
-      <span class="risk-action">Immediate intervention</span>
     </div>
   </div>
   <div class="risk-insight">
-    Risk distribution is binary, not a spectrum. Payment behavior creates a hard cliff between
-    Critical (15%, on-time rate 0.52) and everyone else (85%, on-time rate 1.0). Traditional early
-    warning must target structural risk signals before the first missed payment — once a loan
-    deteriorates, it immediately enters Critical status.
+    The original scores cluster in the Low and Critical bands. The model used the full supplied
+    payment history. An early-warning evaluation would require features available at the scoring date
+    and validation on later loans.
   </div>
 </section>
 
 <!-- ── DASHBOARD ──────────────────────────────────────────────────────────── -->
 <section id="dashboard">
-  <div class="section-label">Visualization</div>
-  <h2 class="section-title">Interactive Dashboard</h2>
-  <p class="section-sub">Published on Tableau Public — fully interactive, click to filter and explore.</p>
+  <div class="section-label">Reconciled Data</div>
+  <h2 class="section-title">Portfolio KPI Dashboard</h2>
+  <p class="section-sub">Seven payment periods from the original competition data. Each loan contributes one record per observed period.</p>
 
-  <div style="margin-bottom:40px">
-    <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">
-      <strong style="color:var(--white)">Dashboard 1 · Portfolio Monthly Risk Monitor</strong><br>
-      On-time rate trend, deteriorating loan count, and portfolio size across the 5-month observation window.
-    </p>
-    <div class="dash-card" style="padding:0;overflow:hidden">
-      <div class='tableauPlaceholder' id='viz1780203822965' style='position:relative;width:100%'>
-        <noscript>
-          <a href='#'><img alt='Loan Portfolio — Monthly Risk Monitor' src='https://public.tableau.com/static/images/Da/Dashboard_17802037267400/LoanPortfolioMonthlyRiskMonitor/1_rss.png' style='border:none'/></a>
-        </noscript>
-        <object class='tableauViz' style='display:none;width:100%'>
-          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-          <param name='embed_code_version' value='3' />
-          <param name='site_root' value='' />
-          <param name='name' value='Dashboard_17802037267400/LoanPortfolioMonthlyRiskMonitor' />
-          <param name='tabs' value='no' />
-          <param name='toolbar' value='yes' />
-          <param name='animate_transition' value='yes' />
-          <param name='display_static_image' value='yes' />
-          <param name='display_spinner' value='yes' />
-          <param name='display_overlay' value='yes' />
-          <param name='display_count' value='yes' />
-          <param name='language' value='en-US' />
-          <param name='filter' value='publish=yes' />
-        </object>
-      </div>
+  <div class="dash-card">
+    <h3 class="dash-label">Payment Performance by Period</h3>
+    <div class="table-scroll" role="region" aria-label="Reconciled KPIs by payment period" tabindex="0">
+      <table class="kpi-table" aria-label="Reconciled KPIs by payment period">
+        <thead><tr><th scope="col">Payment period</th><th scope="col">Loans observed</th><th scope="col">Average on-time rate</th><th scope="col">Ever delinquent</th><th scope="col">Deteriorating</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">Period 1</th><td>180,000</td><td>98.16%</td><td>1.84%</td><td>—</td></tr>
+        <tr><th scope="row">Period 2</th><td>179,739</td><td>95.04%</td><td>8.68%</td><td>7.06%</td></tr>
+        <tr class="period-highlight"><th scope="row">Period 3</th><td>167,587</td><td>94.51%</td><td>12.12%</td><td>9.53%</td></tr>
+        <tr><th scope="row">Period 4</th><td>88,607</td><td>97.27%</td><td>7.55%</td><td>5.55%</td></tr>
+        <tr><th scope="row">Period 5</th><td>11,354</td><td>99.31%</td><td>2.38%</td><td>1.68%</td></tr>
+        <tr><th scope="row">Period 6</th><td>222</td><td>99.70%</td><td>0.90%</td><td>0.92%</td></tr>
+        <tr><th scope="row">Period 7</th><td>2</td><td>100.00%</td><td>0.00%</td><td>0.00%</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="dash-note">Rates use eligible observations. The dash in Period 1 indicates no preceding period for a deterioration comparison.</p>
   </div>
 
-  <div style="margin-bottom:40px">
-    <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">
-      <strong style="color:var(--white)">Dashboard 2 · Segment Analysis — Loan Type Breakdown</strong><br>
-      Risk metrics by loan type across months, revealing auto and home equity as highest-delinquency segments.
-    </p>
-    <div class="dash-card" style="padding:0;overflow:hidden">
-      <div class='tableauPlaceholder' id='viz1780203894102' style='position:relative;width:100%'>
-        <noscript>
-          <a href='#'><img alt='Segment Analysis — Loan Type Breakdown' src='https://public.tableau.com/static/images/Da/Dashboard_17802037267400/SegmentAnalysisLoanTypeBreakdown/1_rss.png' style='border:none'/></a>
-        </noscript>
-        <object class='tableauViz' style='display:none;width:100%'>
-          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-          <param name='embed_code_version' value='3' />
-          <param name='site_root' value='' />
-          <param name='name' value='Dashboard_17802037267400/SegmentAnalysisLoanTypeBreakdown' />
-          <param name='tabs' value='no' />
-          <param name='toolbar' value='yes' />
-          <param name='animate_transition' value='yes' />
-          <param name='display_static_image' value='yes' />
-          <param name='display_spinner' value='yes' />
-          <param name='display_overlay' value='yes' />
-          <param name='display_count' value='yes' />
-          <param name='language' value='en-US' />
-          <param name='filter' value='publish=yes' />
-        </object>
-      </div>
+  <div class="dash-card" id="reconciliation">
+    <h3 class="dash-label">Count Reconciliation</h3>
+    <div class="table-scroll" role="region" aria-label="Previous and corrected loan-period counts" tabindex="0">
+      <table class="kpi-table" aria-label="Previous and corrected loan-period counts">
+        <thead><tr><th scope="col">Scope</th><th scope="col">Previous count</th><th scope="col">Corrected count</th><th scope="col">Duplicate rows removed</th></tr></thead>
+        <tbody>
+        <tr class="period-highlight"><th scope="row">Period 3</th><td>170,919</td><td>167,587</td><td>3,332 (1.95%)</td></tr>
+        <tr><th scope="row">All seven periods</th><td>640,096</td><td>627,511</td><td>12,585 (1.97%)</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="dash-note">The earlier joins multiplied records when source keys repeated. The corrected counts match the payment file and both segment rollups in every period.</p>
   </div>
 
-  <a href="https://public.tableau.com/views/Dashboard_17802037267400/LoanPortfolioMonthlyRiskMonitor"
-     target="_blank" class="tableau-btn">View on Tableau Public &nbsp;→</a>
+  <div class="source-links">
+    <a href="portfolio_monthly_kpi.csv">Monthly KPI CSV</a>
+    <a href="portfolio_monthly_kpi_by_segment.csv">Segment KPI CSV</a>
+    <a href="portfolio_kpi_reconciliation.csv">Full Reconciliation CSV</a>
+    <a href="#reports">Period 3 Risk Brief</a>
+    <a href="#tableau">Refreshed Tableau Dashboards</a>
+  </div>
 </section>
 
-<!-- ── AI REPORTS ─────────────────────────────────────────────────────────── -->
+<!-- ── RISK BRIEF ─────────────────────────────────────────────────────────── -->
 <section id="reports">
-  <div class="section-label">AI Intelligence</div>
-  <h2 class="section-title">AI-Powered Monthly Risk Reports</h2>
-  <p class="section-sub">
-    The system uses Claude API to transform raw KPI data and risk segmentation outputs into
-    natural-language executive risk reports — written in the tone of a senior risk analyst
-    briefing the executive committee.
-  </p>
-  <div class="tabs">
-<button class="tab-btn" onclick="switchTab(1)">Month 1 <span class="tab-sub">2023-01</span></button>
-<button class="tab-btn" onclick="switchTab(2)">Month 2 <span class="tab-sub">2023-02</span></button>
-<button class="tab-btn tab-active" onclick="switchTab(3)">Month 3 <span class="tab-sub">2023-03</span> <span class="peak-badge">Peak Risk</span></button>
-<button class="tab-btn" onclick="switchTab(4)">Month 4 <span class="tab-sub">2023-04</span></button>
-<button class="tab-btn" onclick="switchTab(5)">Month 5 <span class="tab-sub">2023-05</span></button>
-  </div>
-<div class="tab-panel" id="panel-1">
-<div class="report-body"><h3 class="report-h3">Executive Summary</h3>
-<br>
-<p class="report-p">Portfolio health in January 2023 is strong across primary metrics: 183,596 active loans show a 98.20% on-time payment rate with only 1.80% delinquency and 1.80% high-risk concentration. However, the Critical risk band represents a material concentration risk, comprising 15.0% of the portfolio (27,585 loans) with a 99.81% average default probability and significantly degraded on-time performance at 51.85%. This bifurcated profile—healthy mainstream portfolio offsetting a distressed tail—requires immediate intervention on the Critical segment before deterioration accelerates across Month 2.</p>
-<br>
-<h3 class="report-h3">Key Risk Signals</h3>
-<br>
-<ul class="report-ul">
-<li><strong>Critical band default concentration</strong>: 27,585 loans (15.0% of portfolio) carry 0.9981 average default probability with on-time rate of only 0.5185, representing ~$2.0 billion in principal at extreme risk ($74,195 average principal × 27,585 loans).</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Top-10 loans at certainty of default</strong>: 10 individual loans each show 1.0000 default probability, with principals of $242,229 per loan and delinquency already present (range: 2–11 days past due), totaling ~$2.42M in immediate distress.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Home equity and credit line vulnerability</strong>: Of the top-10 intervention priority loans, 60% are home equity lines and 40% are credit lines, concentrated in coastal and cyclical-economy states (FL, MN, CT, RI, NJ), suggesting potential regional economic stress.</li>
-</ul>
-<br>
-<h3 class="report-h3">Recommended Actions</h3>
-<br>
-<p class="report-p"><strong>1.</strong> <strong>Activate immediate workout protocol for top-10 loans (L14492-543328 through L36747-848034)</strong>: Assign dedicated collections case managers to each loan within 5 business days. Prioritize L35724-203317 (11 days delinquent, 0.3333 on-time rate) and L15625-229307 (7 days delinquent, GU jurisdiction) for accelerated contact and recovery negotiation; target resolution or restructuring within 30 days.</p>
-<br>
-<p class="report-p"><strong>2.</strong> <strong>Establish Critical band triage framework</strong>: Segment the 27,585 Critical loans into sub-cohorts by on-time rate (≤0.33, 0.34–0.66, 0.67–1.0) and state; initiate targeted forbearance/modification outreach to the ≤0.33 cohort (estimated 9,000–10,000 loans) before Month 2 deterioration accelerates, with success target of 40% retention in portfolio.</p>
-<br>
-<p class="report-p"><strong>3.</strong> <strong>Stress-test home equity and credit line exposure</strong>: Given 60% of top-10 risks are home equity lines, run scenario modeling on Florida and Connecticut portfolios (states with 2 loans each in critical priority list) assuming 3–5% additional monthly migration to Critical band; establish monthly monitoring thresholds to trigger proactive rate or term adjustments before Month 2 deterioration cycle.</p></div>
-</div>
-<div class="tab-panel" id="panel-2">
-<div class="report-body"><h3 class="report-h3">Executive Summary</h3>
-<br>
-<p class="report-p">Portfolio health deteriorated sharply in Month 2, with on-time rate dropping 302 basis points to 95.18% and delinquent loans spiking from 180 to 8,650 accounts. The most critical signal is the emergence of 12,669 deteriorating loans (6.91% of portfolio), representing a dramatic shift from zero deterioration in Month 1—this cohort requires immediate triage to prevent cascade defaults. The 27,585 critical-band loans (15.0% of portfolio) carrying 99.81% average default probability and only 51.85% on-time performance remain the portfolio's structural weakness.</p>
-<br>
-<h3 class="report-h3">Key Risk Signals</h3>
-<br>
-<ul class="report-ul">
-<li><strong>Delinquency rate explosion</strong>: Delinquent loans increased 380% month-over-month from 33 to 1,585 accounts (0.0180 to 0.0865), signaling either systematic servicing breakdown or concentrated borrower distress triggering simultaneous payment failures.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Deteriorating cohort emergence</strong>: 12,669 loans entered deteriorating status in Month 2 versus zero in Month 1—if this cohort follows critical-band trajectories (99.81% default probability), the portfolio faces $939M in principal exposure at risk (12,669 loans × ~$74K average principal).</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Critical segment stagnation</strong>: The 27,585 critical loans remain locked at 51.85% on-time rate with 3.59 average days delinquent, indicating existing workout efforts are not resolving the underlying payment capacity gap.</li>
-</ul>
-<br>
-<h3 class="report-h3">Recommended Actions</h3>
-<br>
-<p class="report-p"><strong>1.</strong> <strong>Immediate triage of deteriorating cohort</strong>: Segment the 12,669 Month 2 deteriorating loans by current on-time rate and days delinquent; prioritize the bottom quartile (estimated ~3,167 loans) for same-day contact, payment plan negotiation, or hardship review to arrest progression to critical status before Month 3.</p>
-<br>
-<p class="report-p"><strong>2.</strong> <strong>Focused collection on top-10 priority accounts</strong>: Escalate loans L35724-203317 (11 days delinquent, $242,229 principal) and L15625-229307 (7 days delinquent, home equity, GU) to senior workout specialists within 5 business days; all top-10 loans carry 100% default probability and $2.42M combined exposure requiring individualized recovery strategy rather than automated processes.</p>
-<br>
-<p class="report-p"><strong>3.</strong> <strong>Critical-band portfolio review</strong>: Commission a 60-day root-cause analysis of why the 27,585 critical loans (99.81% default probability) maintain any on-time payments at 51.85%—hypothesis test whether these are distressed borrowers in forbearance, underwater collateral positions, or servicing data errors; reallocate collection capacity if forbearance program is masking true defaults.</p></div>
-</div>
-<div class="tab-panel active" id="panel-3">
-<div class="report-body"><h3 class="report-h3">Executive Summary</h3>
-<br>
-<p class="report-p">Month 3 portfolio health has deteriorated materially: on-time payment rate declined 52 basis points to 94.66% while delinquency surged 346 basis points to 12.11%, and the count of deteriorating loans expanded 27% month-over-month to 16,085 loans (9.41% of portfolio). The critical risk segment now represents 15.0% of the portfolio with a 99.81% average default probability and 3.59 days average delinquency, yet high-risk loans actually contracted to 3.91% after peaking at 8.65% in Month 2—indicating either successful remediation or reclassification rather than stabilization. The portfolio has shed 12,411 active loans (6.8% decline) since Month 2, suggesting either aggressive charge-offs or loan dispositions that mask underlying performance stress.</p>
-<br>
-<h3 class="report-h3">Key Risk Signals</h3>
-<br>
-<ul class="report-ul">
-<li><strong>Critical segment concentration crisis</strong>: 27,585 loans (15.0% of portfolio) now carry 99.81% average default probability with only 51.85% on-time rate and 3.59 days average delinquency, representing $2.045 billion in principal at imminent loss risk.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Delinquency spike outpaces high-risk classification</strong>: Delinquent loans jumped 346 basis points to 12.11% (20,709 loans) while high-risk loans contracted 474 basis points to 3.91% (6,691 loans)—a 5.3x divergence indicating delinquency is occurring across risk tiers, not concentrated in flagged segments.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Top-10 intervention queue all perfected at 100% default probability</strong>: Ten loans totaling $2.422 million each display perfect 1.0000 default probability across multiple states; one (L35724-203317) has escalated to 11 days delinquent in Minnesota, representing imminent charge-off without immediate intervention.</li>
-</ul>
-<br>
-<h3 class="report-h3">Recommended Actions</h3>
-<br>
-<ul class="report-ul">
-<li><strong>Immediate collections escalation on critical segment</strong>: Deploy specialized recovery team to the 27,585 loans in the critical band within 10 business days; prioritize the ten loans in the intervention queue by state (FL, MN, GU, RI showing highest delinquency days), with separate protocols for home_equity versus credit_line products given their differing recovery dynamics.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Force loan disposition decision on Month 3 deteriorating cohort</strong>: The 16,085 newly deteriorating loans (9.41% of portfolio) must be triaged within 45 days into three buckets—retain with enhanced monitoring (loans with on-time_rate &gt;70%), transfer to specialized servicer (50–70% on-time rate), or charge off (&lt;50% on-time rate)—to prevent additional drift into the critical segment.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Quantify and reverse Month 2–3 portfolio shrinkage</strong>: The 12,411-loan decline (6.8%) occurred despite delinquency worsening; investigate whether dispositions included performing loans that should have been retained, and establish a minimum portfolio threshold of 170,000 active loans with monthly variance reporting to the committee.</li>
-</ul></div>
-</div>
-<div class="tab-panel" id="panel-4">
-<div class="report-body"><h3 class="report-h3">Executive Summary</h3>
-<br>
-<p class="report-p">Month 4 portfolio shows mixed signals: active loans contracted sharply to 90,423 (−47.0% from Month 3's 170,919), yet on-time payment rate improved to 97.33% from 94.66%, indicating a portfolio reduction strategy or mass remediation effort is underway. The critical concern is the persistence of 27,585 loans (15.0% of portfolio) in critical risk band with 99.81% average default probability and only 51.85% on-time performance despite portfolio shrinkage. Deteriorating loans fell to 4,907 (5.43% of active), marking the first meaningful decline since Month 1, but the absolute concentration of critical-band exposure remains systemically significant.</p>
-<br>
-<h3 class="report-h3">Key Risk Signals</h3>
-<br>
-<ul class="report-ul">
-<li><strong>Critical band concentration unchanged despite portfolio reduction</strong>: 27,585 critical-risk loans representing $2.05B in principal remain locked at 15.0% of the shrunken portfolio, suggesting selective retention of worst credits rather than proportional culling—on-time rate of 51.85% confirms active delinquency behavior with 3.59 average days past due.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Ten top-priority loans total $2.42M with perfect default probability and material delinquency</strong>: Loans L14492-543328, L15625-229307, L17211-139400, and seven others each carry 100% default probability and principal of $242,229; L35724-203317 is 11 days delinquent while L15625-229307 is 7 days past due, representing immediate loss crystallization risk.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Deteriorating loan count collapsed 69.5% month-over-month</strong>: Drop from 16,085 (Month 3) to 4,907 (Month 4) represents either aggressive charge-offs masking underlying stress or portfolio exit, making Month 4 a potential inflection point requiring charge-off reconciliation to validate improvement credibility.</li>
-</ul>
-<br>
-<h3 class="report-h3">Recommended Actions</h3>
-<br>
-<p class="report-p"><strong>1.</strong> <strong>Immediate collections escalation on top-10 priority cohort (30 days)</strong>: Deploy specialized recovery teams to loans L14492-543328, L15625-229307, L35724-203317, and L34436-106707—these four loans exhibit delinquency of 4–11 days combined with on-time rates ≤50%, requiring direct borrower contact, hardship assessment, and workout plan initiation to prevent the $242,229 per-loan losses from crystallizing into charge-offs.</p>
-<br>
-<p class="report-p"><strong>2.</strong> <strong>Audit critical band retention logic and enforce exit threshold (15 days)</strong>: The 27,585 critical-band loans (99.81% default probability) should trigger immediate risk committee review—determine why these credits were retained during portfolio reduction and establish a 90-day compliance plan to exit or restructure all critical-band loans above $150,000 principal or with on-time rates below 40%.</p>
-<br>
-<p class="report-p"><strong>3.</strong> <strong>Validate Month 4 charge-off activity and Month 5 portfolio trajectory (30 days)</strong>: The 69.5% drop in deteriorating loans is anomalous and inconsistent with the 27,585 critical-band exposure; require Finance to reconcile Month 3→Month 4 loan exit, charge-off, and paydown activity and confirm whether the Month 5 active-loan count of 11,599 reflects further mass portfolio exit or data anomaly to assess whether Month 4 represents managed risk reduction or uncontrolled portfolio hemorrhage.</p></div>
-</div>
-<div class="tab-panel" id="panel-5">
-<div class="report-body"><h3 class="report-h3">Executive Summary</h3>
-<br>
-<p class="report-p">Month 5 portfolio health has improved materially across headline metrics, with active loans contracting to 11,599 (87.2% decline from Month 4's 90,423) and delinquency dropping to 2.39% from 7.57%. However, this improvement reflects portfolio run-off rather than genuine risk reduction: the critical risk band remains bloated at 15.0% of remaining loans (27,585 accounts) with a 0.9981 average default probability, and ten loans in the top intervention priority list each carry $242,229 principal exposure with perfect 1.0000 default probability. The portfolio's apparent health masks concentration risk in a shrinking base of critically distressed assets.</p>
-<br>
-<h3 class="report-h3">Key Risk Signals</h3>
-<br>
-<ul class="report-ul">
-<li><strong>Critical band default concentration</strong>: 27,585 loans (15.0% of portfolio) exhibit 0.9981 average default probability despite only 0.5185 on-time payment rate, representing $2.04 billion in embedded credit loss; this band has persisted across all five months with negligible improvement.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Top-10 priority loans show zero recovery trajectory</strong>: All ten highest-risk loans hold identical $242,229 principal and 1.0000 default probability, with delinquencies ranging 2–11 days; L35724-203317 (home_equity, MN) has advanced to 11 days delinquent—the longest in the cohort—indicating deterioration despite Month 5's aggregate improvement.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Loan portfolio velocity masks deteriorating core</strong>: Despite active loans shrinking 87.2% since Month 4, deteriorating loan count remains material at 189 accounts (1.63% of Month 5 base), suggesting selective attrition of performing assets while problem loans persist.</li>
-</ul>
-<br>
-<h3 class="report-h3">Recommended Actions</h3>
-<br>
-<ul class="report-ul">
-<li><strong>Immediate escalation of top-10 priority cohort to specialized recovery unit</strong>: Assign dedicated collections resources to all ten loans with 1.0000 default probability within 5 business days. Prioritize L35724-203317 (11 days delinquent) and L15625-229307 (7 days delinquent, home_equity) for same-day borrower contact and payment plan negotiation; recovery rate improvement of just 10% on this $2.42 million cohort would reduce Month 6 embedded loss by ~$73,000.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Implement critical band portfolio stress review</strong>: Conduct forensic analysis of the 27,585 critical-band loans to identify root causes of persistent 0.9981 default probability and 3.59 average days delinquent; segment by loan type and state (home_equity and credit_line products show highest concentration) and model exit scenarios (charge-off, recovery, refinance) within 15 days to inform June portfolio actions.</li>
-</ul>
-<br>
-<ul class="report-ul">
-<li><strong>Establish hard delinquency threshold trigger at 5 days</strong>: Define automated escalation protocol requiring supervisor review for any loan exceeding 5 days delinquent; current data shows L35724-203317 at 11 days, indicating current monitoring gaps. Apply retroactively to remaining 27,585 critical loans and flag any additional accounts crossing threshold by May 31st.</li>
-</ul></div>
-</div>
+  <div class="section-label">Risk Brief</div>
+  <h2 class="section-title">Period 3 Loan Portfolio Risk Brief</h2>
+  <p class="section-sub">Payment period 3 · Representative due-date month March 2023 · AITCC competition data</p>
+  <article class="report-body">
+    <h3 class="report-h3">Executive Summary</h3>
+    <p class="report-p">Period 3 showed the weakest payment performance among the first five observed periods. The average cumulative on-time rate fell from <strong>95.04% to 94.51%</strong>. Among loans with comparable payment histories, <strong>15,579 of 163,405 (9.53%)</strong> had a drop of more than 10 percentage points in their own cumulative on-time rate, up from <strong>12,071 of 171,022 (7.06%)</strong> in period 2.</p>
+    <div class="table-scroll" role="region" aria-label="Period 2 and period 3 risk metrics" tabindex="0">
+      <table class="kpi-table" aria-label="Period 2 and period 3 risk metrics">
+        <thead><tr><th scope="col">Metric</th><th scope="col">Period 2</th><th scope="col">Period 3</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">Loans with a payment record</th><td>179,739</td><td>167,587</td></tr>
+        <tr><th scope="row">Loans with known current payment status</th><td>175,309</td><td>163,506</td></tr>
+        <tr><th scope="row">Average cumulative on-time rate</th><td>95.04%</td><td>94.51%</td></tr>
+        <tr><th scope="row">Loans ever recorded delinquent through the period</th><td>15,583 of 179,619 (8.68%)</td><td>20,303 of 167,584 (12.12%)</td></tr>
+        <tr><th scope="row">Loans with a deteriorating on-time rate</th><td>12,071 of 171,022 (7.06%)</td><td>15,579 of 163,405 (9.53%)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="report-h3">Segment Findings and Coverage</h3>
+    <p class="report-p">Credit lines and home equity loans accounted for <strong>17,326 of 20,303</strong> loans with recorded delinquency through period 3. Their rates were similar at <strong>12.12%</strong> and <strong>12.13%</strong>, respectively. Those two segments are a practical starting point for reviewing the increase by volume. Check the <strong>4,081</strong> period 3 payment records with unknown current status separately before interpreting current payment performance.</p>
+    <p class="report-p">The observed population fell by <strong>12,152</strong> loans between periods 2 and 3. Each row compares the population observed in that period. A matched cohort would be needed to measure how the same loans changed. The average on-time rate is the mean of each eligible loan’s cumulative rate. Each loan contributes one observation per period. The denominator for deterioration requires a known current status and a comparable preceding-period rate.</p>
+    <h3 class="report-h3">Data Reconciliation</h3>
+    <p class="report-p">The period 3 source count of <strong>167,587</strong> matches the corrected portfolio and both segment totals. The earlier unchecked joins produced <strong>170,919</strong> rows for that period. The figures above come from Phase 0, using the original competition CSVs and aggregate outputs only.</p>
+    <div class="source-links">
+      <a href="#dashboard">View All Payment Periods</a>
+      <a href="https://github.com/Kiren-67m/loan-risk-monitor/blob/main/ai_insights/reconciled_period_3_risk_report.md">Source Brief</a>
+      <a href="portfolio_monthly_kpi.csv">Monthly KPI CSV</a>
+      <a href="portfolio_kpi_reconciliation.csv">Reconciliation CSV</a>
+    </div>
+  </article>
+</section>
 
+<!-- ── TABLEAU ───────────────────────────────────────────────────────────── -->
+<section id="tableau">
+  <div class="section-label">Reconciled Data</div>
+  <h2 class="section-title">Interactive Tableau Dashboards</h2>
+  <p class="section-sub">Explore seven payment periods in two interactive views rebuilt from the same aggregate CSVs as the <a href="#dashboard">Portfolio KPI Dashboard</a>.</p>
+
+  <div class="dash-card">
+    <h3 class="dash-label">Loan Portfolio · Monthly Risk Monitor</h3>
+    <iframe class="tableau-frame" title="Reconciled Tableau loan portfolio risk monitor" loading="lazy" allowfullscreen
+      src="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/LoanPortfolioMonthlyRiskMonitor?:embed=yes&amp;:showVizHome=no&amp;:tabs=no&amp;:language=en-US"></iframe>
+    <p class="dash-note"><a href="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/LoanPortfolioMonthlyRiskMonitor">Open the portfolio view on Tableau Public</a></p>
+  </div>
+
+  <div class="dash-card">
+    <h3 class="dash-label">Segment Analysis · Loan Type Breakdown</h3>
+    <iframe class="tableau-frame" title="Reconciled Tableau loan type breakdown" loading="lazy" allowfullscreen
+      src="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/SegmentAnalysisLoanTypeBreakdown?:embed=yes&amp;:showVizHome=no&amp;:tabs=no&amp;:language=en-US"></iframe>
+    <p class="dash-note"><a href="https://public.tableau.com/views/LoanRiskMonitor-PortfolioCapture/SegmentAnalysisLoanTypeBreakdown">Open the segment view on Tableau Public</a></p>
+  </div>
 </section>
 
 <!-- ── STACK ─────────────────────────────────────────────────────────────── -->
@@ -946,7 +779,7 @@ footer {
   </div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/qiming-liu-845ba92a0/" target="_blank">LinkedIn</a>
-    <a href="#">GitHub</a>
+    <a href="https://github.com/Kiren-67m/loan-risk-monitor">GitHub</a>
   </div>
 </footer>
 
@@ -966,239 +799,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.08 });
 document.querySelectorAll('section:not(#hero)').forEach(s => observer.observe(s));
 
-// Tab switcher
-function switchTab(month) {
-  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
-    btn.classList.toggle('tab-active', i === month - 1);
-  });
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('panel-' + month).classList.add('active');
-}
-</script>
-
-<script>
-// ── Shared defaults ─────────────────────────────────────────────────────────
-Chart.defaults.color = '#888';
-Chart.defaults.borderColor = '#2a2a2a';
-Chart.defaults.font.family = "'Inter', sans-serif";
-
-const BLUE   = '#3b82f6';
-const GREEN  = '#10b981';
-const ORANGE = '#f97316';
-const RED    = '#ef4444';
-const YELLOW = '#f59e0b';
-const MUTED  = 'rgba(255,255,255,0.06)';
-
-// ── Chart 1: Trend line + bars ───────────────────────────────────────────────
-const ctx1 = document.getElementById('chart1').getContext('2d');
-new Chart(ctx1, {
-  data: {
-    labels: ['Month 1\n2023-01','Month 2\n2023-02','Month 3\n2023-03','Month 4\n2023-04','Month 5\n2023-05'],
-    datasets: [
-      {
-        type: 'line',
-        label: 'Avg On-Time Rate',
-        data: [0.9820, 0.9518, 0.9466, 0.9733, 0.9933],
-        borderColor: GREEN,
-        backgroundColor: 'rgba(16,185,129,0.08)',
-        pointBackgroundColor: GREEN,
-        pointRadius: 5,
-        pointHoverRadius: 7,
-        tension: 0.35,
-        fill: true,
-        yAxisID: 'yLeft',
-        order: 1,
-      },
-      {
-        type: 'bar',
-        label: 'Deteriorating Loans',
-        data: [0, 12669, 16085, 4907, 189],
-        backgroundColor: [
-          'rgba(59,130,246,0.15)',
-          'rgba(249,115,22,0.45)',
-          'rgba(239,68,68,0.55)',
-          'rgba(245,158,11,0.35)',
-          'rgba(59,130,246,0.15)',
-        ],
-        borderColor: [
-          'rgba(59,130,246,0.6)',
-          'rgba(249,115,22,0.9)',
-          'rgba(239,68,68,0.9)',
-          'rgba(245,158,11,0.7)',
-          'rgba(59,130,246,0.4)',
-        ],
-        borderWidth: 1,
-        borderRadius: 4,
-        yAxisID: 'yRight',
-        order: 2,
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    interaction: { mode: 'index', intersect: false },
-    plugins: {
-      legend: { labels: { color: '#aaa', boxWidth: 14, padding: 20 } },
-      tooltip: {
-        backgroundColor: '#1a1a1a',
-        borderColor: '#2a2a2a',
-        borderWidth: 1,
-        callbacks: {
-          label: ctx => {
-            if (ctx.dataset.label === 'Avg On-Time Rate')
-              return '  On-Time Rate: ' + (ctx.raw * 100).toFixed(2) + '%';
-            return '  Deteriorating: ' + ctx.raw.toLocaleString();
-          }
-        }
-      }
-    },
-    scales: {
-      x: { grid: { color: '#1e1e1e' }, ticks: { color: '#666' } },
-      yLeft: {
-        type: 'linear', position: 'left',
-        min: 0.92, max: 1.00,
-        grid: { color: '#1e1e1e' },
-        ticks: { color: '#666', callback: v => (v*100).toFixed(1)+'%' },
-        title: { display: true, text: 'On-Time Rate', color: '#555' }
-      },
-      yRight: {
-        type: 'linear', position: 'right',
-        grid: { drawOnChartArea: false },
-        ticks: { color: '#666', callback: v => v >= 1000 ? (v/1000).toFixed(0)+'K' : v },
-        title: { display: true, text: 'Deteriorating Loans', color: '#555' }
-      }
-    }
-  }
-});
-
-// ── Chart 2: Loan type horizontal bar ───────────────────────────────────────
-const ctx2 = document.getElementById('chart2').getContext('2d');
-new Chart(ctx2, {
-  type: 'bar',
-  data: {
-    labels: ['Auto','Home Equity','Credit Line','Personal','Small Business','Student'],
-    datasets: [
-      {
-        label: 'On-Time Rate',
-        data: [0.9448, 0.9465, 0.9466, 0.9479, 0.9479, 0.9502],
-        backgroundColor: 'rgba(59,130,246,0.55)',
-        borderColor: BLUE,
-        borderWidth: 1,
-        borderRadius: 3,
-      },
-      {
-        label: '% Delinquent',
-        data: [0.1250, 0.1213, 0.1211, 0.1090, 0.1171, 0.1184],
-        backgroundColor: 'rgba(239,68,68,0.45)',
-        borderColor: RED,
-        borderWidth: 1,
-        borderRadius: 3,
-      }
-    ]
-  },
-  options: {
-    indexAxis: 'y',
-    responsive: true,
-    plugins: {
-      legend: { labels: { color: '#aaa', boxWidth: 14 } },
-      tooltip: {
-        backgroundColor: '#1a1a1a', borderColor: '#2a2a2a', borderWidth: 1,
-        callbacks: { label: ctx => '  ' + ctx.dataset.label + ': ' + (ctx.raw*100).toFixed(2)+'%' }
-      }
-    },
-    scales: {
-      x: {
-        grid: { color: '#1e1e1e' },
-        ticks: { color: '#666', callback: v => (v*100).toFixed(0)+'%' },
-        max: 1.05
-      },
-      y: { grid: { color: '#1e1e1e' }, ticks: { color: '#aaa' } }
-    }
-  }
-});
-
-// ── Chart 3: Portfolio size + on-time rate combo ─────────────────────────────
-const ctx3 = document.getElementById('chart3').getContext('2d');
-new Chart(ctx3, {
-  data: {
-    labels: ['M1','M2','M3','M4','M5'],
-    datasets: [
-      {
-        type: 'bar',
-        label: 'Active Loans',
-        data: [183596, 183330, 170919, 90423, 11599],
-        backgroundColor: 'rgba(59,130,246,0.2)',
-        borderColor: 'rgba(59,130,246,0.5)',
-        borderWidth: 1,
-        borderRadius: 4,
-        yAxisID: 'yLeft',
-        order: 2,
-      },
-      {
-        type: 'line',
-        label: 'On-Time Rate',
-        data: [0.9820, 0.9518, 0.9466, 0.9733, 0.9933],
-        borderColor: GREEN,
-        pointBackgroundColor: GREEN,
-        pointRadius: 5,
-        tension: 0.3,
-        yAxisID: 'yRight',
-        order: 1,
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    interaction: { mode: 'index', intersect: false },
-    plugins: {
-      legend: { labels: { color: '#aaa', boxWidth: 14 } },
-      tooltip: {
-        backgroundColor: '#1a1a1a', borderColor: '#2a2a2a', borderWidth: 1,
-        callbacks: {
-          label: ctx => {
-            if (ctx.dataset.label === 'On-Time Rate')
-              return '  Rate: ' + (ctx.raw*100).toFixed(2)+'%';
-            return '  Loans: ' + ctx.raw.toLocaleString();
-          }
-        }
-      }
-    },
-    scales: {
-      x: { grid: { color: '#1e1e1e' }, ticks: { color: '#666' } },
-      yLeft: {
-        grid: { color: '#1e1e1e' },
-        ticks: { color: '#666', callback: v => v>=1000?(v/1000).toFixed(0)+'K':v },
-        title: { display: true, text: 'Active Loans', color: '#555' }
-      },
-      yRight: {
-        position: 'right', grid: { drawOnChartArea: false },
-        min: 0.92, max: 1.00,
-        ticks: { color: '#666', callback: v => (v*100).toFixed(1)+'%' },
-        title: { display: true, text: 'On-Time Rate', color: '#555' }
-      }
-    }
-  }
-});
-</script>
-
-
-<script type='text/javascript'>
-(function() {
-  var ids = ['viz1780203822965','viz1780203894102'];
-  ids.forEach(function(id) {
-    var d = document.getElementById(id);
-    if (!d) return;
-    var v = d.getElementsByTagName('object')[0];
-    if (d.offsetWidth > 800) {
-      v.style.width='100%'; v.style.height='600px';
-    } else {
-      v.style.width='100%'; v.style.height='500px';
-    }
-  });
-  var s = document.createElement('script');
-  s.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-  document.body.appendChild(s);
-})();
 </script>
 </body>
 </html>

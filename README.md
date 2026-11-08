@@ -18,7 +18,7 @@ The counts use one loan in one payment period as the unit. The percentages use t
 
 [Period 3 risk brief](ai_insights/reconciled_period_3_risk_report.md) · [Monthly KPIs](portfolio_monthly_kpi.csv) · [Segment KPIs](portfolio_monthly_kpi_by_segment.csv) · [Reconciliation by period](portfolio_kpi_reconciliation.csv)
 
-The brief uses the reconciled tables. The live site, Tableau views, original AI reports and exploratory risk bands reflect the earlier competition project and can show earlier numbers.
+The live site, Tableau views and Period 3 brief use the reconciled tables. The original AI reports and exploratory risk bands retain the earlier competition outputs.
 
 ## What This Is
 
